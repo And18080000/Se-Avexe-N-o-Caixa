@@ -1,3 +1,4 @@
+/* Estilos para a aplicação em tela */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa; /* Light gray background */
@@ -58,7 +59,6 @@ body {
     border-color: #117a8b;
 }
 
-
 .table-hover tbody tr:hover {
     background-color: #fff3cd; /* Light yellow for table row hover */
 }
@@ -68,7 +68,7 @@ body {
 }
 
 h4, h5, h6 {
-    color: #495057; /* Dark Gray for headings */
+    color: #343536; /* Dark Gray for headings */
 }
 
 .product-selection-list {
@@ -85,19 +85,22 @@ h4, h5, h6 {
     margin-left: 5px;
 }
 
-/* Receipt Styling */
+/* Receipt Styling - Modificado para preto */
 #receiptContentArea {
     font-family: 'Courier New', Courier, monospace;
     font-size: 12px;
-    color: #000;
+    color: #000; /* Preto */
+    background-color: #fff; /* Fundo branco */
+    padding: 15px;
 }
 #receiptContentArea h5, #receiptContentArea h6 {
     text-align: center;
     margin: 5px 0;
-    color: #000;
+    color: #000; /* Preto */
 }
 #receiptContentArea p {
     margin: 2px 0;
+    color: #000; /* Preto */
 }
 #receiptContentArea table {
     width: 100%;
@@ -105,9 +108,10 @@ h4, h5, h6 {
     margin-top: 10px;
 }
 #receiptContentArea th, #receiptContentArea td {
-    border-bottom: 1px dashed #ccc;
+    border-bottom: 1px dashed #000; /* Preto */
     padding: 3px;
     text-align: left;
+    color: #000; /* Preto */
 }
 #receiptContentArea th:last-child, #receiptContentArea td:last-child {
     text-align: right;
@@ -117,35 +121,112 @@ h4, h5, h6 {
     font-size: 14px;
     margin-top: 10px;
     text-align: right;
+    color: #000; /* Preto */
 }
 #receiptContentArea .text-center {
     text-align: center;
+    color: #000; /* Preto */
 }
 #receiptContentArea .timestamp {
     font-size: 10px;
     text-align: center;
     margin-top: 15px;
+    color: #000; /* Preto */
 }
 
-#printableArea {
-    display: none; /* Hidden by default, shown for printing */
-}
-
+/* Estilos específicos para impressão */
 @media print {
-    body * {
-        visibility: hidden;
+    /* Forçar tudo para preto e branco */
+    * {
+        color: #000 !important;
+        background-color: #fff !important;
+        border-color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
-    #printableArea, #printableArea * {
-        visibility: visible;
-    }
-    #printableArea {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-    }
-    .modal-backdrop { /* Hide modal backdrop during print */
+    
+    /* Remover elementos não essenciais para impressão */
+    .navbar, .btn, .modal-footer, .tab-content > .tab-pane:not(.active) {
         display: none !important;
     }
+    
+    /* Garantir que o conteúdo seja visível */
+    .tab-content > .tab-pane.active {
+        display: block !important;
+        opacity: 1 !important;
+    }
+    
+    /* Ajustar layout para impressão */
+    body {
+        padding: 10px !important;
+        font-size: 12px !important;
+    }
+    
+    /* Melhorar legibilidade de tabelas */
+    table {
+        page-break-inside: avoid;
+    }
+    
+    th, td {
+        border: 1px solid #000 !important;
+        padding: 3px !important;
+    }
+    
+    /* Evitar quebras em elementos importantes */
+    .no-break {
+        page-break-inside: avoid;
+    }
+    
+    /* Ajustar para recibos */
+    #receiptToPrint {
+        width: 80mm !important;
+        margin: 0 auto !important;
+        font-size: 10px !important;
+    }
+    
+    #receiptToPrint * {
+        font-family: 'Courier New', monospace !important;
+        color: #000 !important;
+        background-color: #fff !important;
+    }
+    
+    /* Remover fundos de modal durante impressão */
+    .modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff !important;
+        z-index: 1050;
+        display: block !important;
+    }
+    
+    .modal-content {
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+    }
+    
+    .modal-backdrop {
+        display: none !important;
+    }
+}
+
+/* Classe utilitária para impressão em preto */
+.print-black {
+    color: #000 !important;
+    background-color: #fff !important;
+    border-color: #000 !important;
+}
+
+/* Estilo simplificado para elementos de impressão */
+.print-simple {
+    font-family: 'Courier New', monospace !important;
+    font-size: 12px !important;
+    color: #000 !important;
+    background-color: #fff !important;
+    border: none !important;
+    padding: 2px 4px !important;
+    margin: 2px 0 !important;
 }
 
