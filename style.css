@@ -1,0 +1,151 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+/* Yellow and White Theme */
+.bg-primary-custom {
+    background-color: #FFC107 !important; /* Amber Yellow */
+}
+
+.navbar-brand, .nav-link {
+    color: #212529 !important; /* Dark text for contrast on yellow */
+}
+.nav-link:hover, .nav-link.active {
+    color: #000 !important;
+    background-color: #ffe082 !important; /* Lighter yellow for active/hover */
+    border-color: #FFC107 #FFC107 #fff;
+}
+.nav-tabs .nav-link.active {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #FFC107; /* Amber Yellow */
+    border-color: #FFC107;
+    color: #212529;
+}
+.btn-primary:hover {
+    background-color: #e0a800; /* Darker Yellow */
+    border-color: #e0a800;
+    color: #212529;
+}
+
+.btn-success {
+    background-color: #28a745; /* Standard Bootstrap Green */
+    border-color: #28a745;
+}
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Standard Bootstrap Red */
+    border-color: #dc3545;
+}
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-info {
+     background-color: #17a2b8;
+     border-color: #17a2b8;
+}
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+
+.table-hover tbody tr:hover {
+    background-color: #fff3cd; /* Light yellow for table row hover */
+}
+
+.list-group-item-action:hover {
+    background-color: #fff3cd;
+}
+
+h4, h5, h6 {
+    color: #495057; /* Dark Gray for headings */
+}
+
+.product-selection-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#currentOrderItems .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#currentOrderItems .item-controls button {
+    margin-left: 5px;
+}
+
+/* Receipt Styling */
+#receiptContentArea {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    color: #000;
+}
+#receiptContentArea h5, #receiptContentArea h6 {
+    text-align: center;
+    margin: 5px 0;
+    color: #000;
+}
+#receiptContentArea p {
+    margin: 2px 0;
+}
+#receiptContentArea table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+#receiptContentArea th, #receiptContentArea td {
+    border-bottom: 1px dashed #ccc;
+    padding: 3px;
+    text-align: left;
+}
+#receiptContentArea th:last-child, #receiptContentArea td:last-child {
+    text-align: right;
+}
+#receiptContentArea .receipt-total {
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: right;
+}
+#receiptContentArea .text-center {
+    text-align: center;
+}
+#receiptContentArea .timestamp {
+    font-size: 10px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#printableArea {
+    display: none; /* Hidden by default, shown for printing */
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #printableArea, #printableArea * {
+        visibility: visible;
+    }
+    #printableArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .modal-backdrop { /* Hide modal backdrop during print */
+        display: none !important;
+    }
+}
+
